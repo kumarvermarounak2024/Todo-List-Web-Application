@@ -1,5 +1,5 @@
-import express from 'express';
-import Todo from '../models/Todo.js';
+const express = require('express');
+const Todo = require('../models/Todo');
 
 const router = express.Router();
 
@@ -27,5 +27,5 @@ router.delete('/:id', async (req, res) => {
   res.json({ message: 'Deleted' });
 });
 
-export default router;
+module.exports = router;
 
