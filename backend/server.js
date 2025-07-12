@@ -17,6 +17,12 @@ app.use(cors({
 
 app.use(express.json());
 
+// ✅ Root route (GET /)
+app.get('/', (req, res) => {
+  res.send('Todo API is running...');
+});
+
+// ✅ Todo routes
 app.use('/api/todos', todoRoutes);
 
 const PORT = process.env.PORT || 5900;
