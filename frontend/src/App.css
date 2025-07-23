@@ -1,3 +1,5 @@
+/* FINAL STRUCTURED App.css with clean layout, center alignment, and enhanced UI */
+
 body {
   margin: 0;
   padding: 0;
@@ -7,96 +9,127 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  color: #ffffff;
 }
 
-
-.header {
-  background: url('/header.jpg');
-  background-size: cover;
-  padding: 40px;
-  text-align: center;
-  color: white;
-  font-size: 40px;
-}
-
-.filters {
+#root {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin: 20px;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  padding: 2rem;
 }
 
-.filters button {
-  padding: 10px 20px;
-  background: #cde3ce;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.filters .active {
-  background: #2d4f2d;
-  color: white;
-}
-
-.add-task {
+.container {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
+  color: #222;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+h1 img {
+  width: 32px;
+  height: 32px;
+}
+
+.todo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
   margin-bottom: 20px;
 }
 
-.add-task input {
+.todo-form input,
+.todo-form select,
+.todo-form button {
   padding: 10px;
-  width: 250px;
-  margin-right: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
-.add-task button {
-  padding: 10px 20px;
-  background: #2d4f2d;
+.todo-form input::placeholder {
+  color: #999;
+}
+
+.todo-form button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.todo-form button:hover {
+  background-color: #333;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.todo-item {
+  background: #f4f4f4;
+  padding: 12px 10px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #333;
+}
+
+.todo-text {
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.todo-text.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.todo-meta {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.todo-buttons {
+  margin-top: 6px;
+  display: flex;
+  gap: 10px;
+}
+
+.todo-buttons button {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  background-color: #e53935;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.task-card {
-  background: white;
-  margin: 10px auto;
-  padding: 15px;
-  max-width: 700px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.task-title {
-  font-weight: bold;
-}
-
-.task-date {
-  color: gray;
-  font-size: 14px;
-}
-
-.priority {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.priority.red {
-  background: red;
-}
-
-.priority.yellow {
-  background: orange;
-}
-
-.priority.green {
-  background: green;
+.todo-buttons button:hover {
+  background-color: #c62828;
 }
