@@ -10,13 +10,10 @@ connectDB();
 const app = express();
 
 // ✅ CORS Configuration
-const corsOptions = {
-  origin: [
-    "http://172.31.28.146:5800"],
-  credentials: true,
-  optionSuccessStatus: 200,
-};
-app.use(cors(corsOptions));
+app.use(cors({
+  origin: ['http://172.31.28.146:5800'], // frontend ka origin
+  credentials: true
+}));
 
 app.use(express.json());
 
