@@ -1,18 +1,34 @@
-/* Container */
-#root {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 2rem;
+/* ===== Background for entire page ===== */
+body {
+  background-image: url('/desk-workspace-with-various-elements.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* Title */
+/* ===== Root container ===== */
+#root {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+/* ===== Title ===== */
 h1 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
-/* Input form */
+/* ===== Input Form ===== */
 .todo-form {
   display: flex;
   flex-direction: column;
@@ -25,6 +41,8 @@ h1 {
 .todo-form button {
   padding: 10px;
   font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .todo-form button {
@@ -39,14 +57,14 @@ h1 {
   background-color: #0f6cd1;
 }
 
-/* Todo list */
+/* ===== Todo List ===== */
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* Todo item */
+/* ===== Todo Item ===== */
 .todo-item {
   background: #f0f0f0;
   padding: 15px;
@@ -58,10 +76,11 @@ ul {
   align-items: center;
 }
 
-/* Text strike-through when completed */
+/* ===== Todo Text ===== */
 .todo-text {
   cursor: pointer;
   flex-grow: 1;
+  font-size: 1.1rem;
 }
 
 .todo-text.completed {
@@ -69,14 +88,14 @@ ul {
   color: gray;
 }
 
-/* Extra info */
+/* ===== Meta Info ===== */
 .todo-meta {
   font-size: 0.85rem;
   color: #666;
   margin-top: 4px;
 }
 
-/* Buttons */
+/* ===== Delete Button ===== */
 .todo-buttons button {
   margin-left: 8px;
   padding: 6px 10px;

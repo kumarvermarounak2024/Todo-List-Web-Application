@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import './App.css'; // Styling
+import './App.css'; // CSS file
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -11,7 +11,9 @@ function App() {
   const [dueDate, setDueDate] = useState('');
 
   useEffect(() => {
-    axios.get(API_URL).then(res => setTodos(res.data));
+    axios.get(API_URL)
+      .then(res => setTodos(res.data))
+      .catch(err => console.error('Error fetching todos:', err));
   }, []);
 
   const addTodo = () => {
@@ -26,19 +28,23 @@ function App() {
       setText('');
       setPriority('medium');
       setDueDate('');
-    });
+    }).catch(err => console.error('Error adding todo:', err));
   };
 
   const toggleTodo = (id) => {
-    axios.put(`${API_URL}/${id}`).then(res => {
-      setTodos(todos.map(todo => (todo._id === id ? res.data : todo)));
-    });
+    axios.put(`${API_URL}/${id}`)
+      .then(res => {
+        setTodos(todos.map(todo => (
+          todo._id === id ? res.data : todo
+        )));
+      }).catch(err => console.error('Error toggling todo:', err));
   };
 
   const deleteTodo = (id) => {
-    axios.delete(`${API_URL}/${id}`).then(() => {
-      setTodos(todos.filter(todo => todo._id !== id));
-    });
+    axios.delete(`${API_URL}/${id}`)
+      .then(() => {
+        setTodos(todos.filter(todo => todo._id !== id));
+      }).catch(err => console.error('Error deleting todo:', err));
   };
 
   return (
