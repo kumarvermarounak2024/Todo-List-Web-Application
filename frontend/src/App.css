@@ -1,42 +1,93 @@
+/* Container */
 #root {
-  max-width: 1280px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Title */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Input form */
+.todo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.todo-form input,
+.todo-form select,
+.todo-form button {
+  padding: 10px;
+  font-size: 1rem;
 }
 
-.card {
-  padding: 2em;
+.todo-form button {
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.read-the-docs {
-  color: #888;
+.todo-form button:hover {
+  background-color: #0f6cd1;
+}
+
+/* Todo list */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Todo item */
+.todo-item {
+  background: #f0f0f0;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Text strike-through when completed */
+.todo-text {
+  cursor: pointer;
+  flex-grow: 1;
+}
+
+.todo-text.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* Extra info */
+.todo-meta {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* Buttons */
+.todo-buttons button {
+  margin-left: 8px;
+  padding: 6px 10px;
+  border: none;
+  cursor: pointer;
+  background-color: #ff4d4d;
+  color: white;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.todo-buttons button:hover {
+  background-color: #cc0000;
 }

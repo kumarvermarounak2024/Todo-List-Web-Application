@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import './App.css'; // Styling
 
-// ✅ Use environment variable
 const API_URL = import.meta.env.VITE_API_URL;
 
 function App() {
   const [todos, setTodos] = useState([]);
   const [text, setText] = useState('');
+  const [priority, setPriority] = useState('medium');
+  const [dueDate, setDueDate] = useState('');
 
   useEffect(() => {
     axios.get(API_URL).then(res => setTodos(res.data));
@@ -15,9 +17,15 @@ function App() {
   const addTodo = () => {
     if (!text.trim()) return;
 
-    axios.post(API_URL, { text }).then(res => {
+    axios.post(API_URL, {
+      text,
+      priority,
+      dueDate
+    }).then(res => {
       setTodos([...todos, res.data]);
       setText('');
+      setPriority('medium');
+      setDueDate('');
     });
   };
 
@@ -34,20 +42,47 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Todo List</h1>
-      <input value={text} onChange={(e) => setText(e.target.value)} />
-      <button onClick={addTodo}>Add</button>
+    <div id="root">
+      <h1>📝 Todo List</h1>
+
+      <form className="todo-form" onSubmit={(e) => { e.preventDefault(); addTodo(); }}>
+        <input
+          type="text"
+          placeholder="Enter todo..."
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
+
+        <select value={priority} onChange={(e) => setPriority(e.target.value)}>
+          <option value="high">🔥 High</option>
+          <option value="medium">⭐ Medium</option>
+          <option value="low">🧊 Low</option>
+        </select>
+
+        <input
+          type="date"
+          value={dueDate}
+          onChange={(e) => setDueDate(e.target.value)}
+        />
+
+        <button type="submit">Add</button>
+      </form>
+
       <ul>
         {todos.map(todo => (
-          <li key={todo._id}>
-            <span
+          <li key={todo._id} className="todo-item">
+            <div
+              className={`todo-text ${todo.completed ? 'completed' : ''}`}
               onClick={() => toggleTodo(todo._id)}
-              style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
             >
               {todo.text}
-            </span>
-            <button onClick={() => deleteTodo(todo._id)}>Delete</button>
+            </div>
+            <div className="todo-meta">
+              📅 {todo.dueDate ? new Date(todo.dueDate).toLocaleDateString() : 'No date'} | 🚦 {todo.priority}
+            </div>
+            <div className="todo-buttons">
+              <button onClick={() => deleteTodo(todo._id)}>🗑</button>
+            </div>
           </li>
         ))}
       </ul>
@@ -56,4 +91,3 @@ function App() {
 }
 
 export default App;
-
