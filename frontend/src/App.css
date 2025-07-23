@@ -1,57 +1,43 @@
-/* FINAL STRUCTURED App.css with clean layout, center alignment, and enhanced UI */
-
+/* ===== Global Reset and Background ===== */
 body {
   margin: 0;
   padding: 0;
+  min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-image: url('/bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-}
-
-#root {
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(2px);
-  padding: 2rem;
+  color: #ffffff;
 }
 
-.container {
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 16px;
-  padding: 2rem;
+/* ===== Root container ===== */
+#root {
   width: 100%;
-  max-width: 480px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-width: 500px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.5);
 }
 
+/* ===== Title ===== */
 h1 {
-  font-size: 2.2rem;
-  margin-bottom: 1.2rem;
-  color: #222;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #ffffff;
 }
 
-h1 img {
-  width: 32px;
-  height: 32px;
-}
-
+/* ===== Input Form ===== */
 .todo-form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  width: 100%;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
@@ -60,18 +46,19 @@ h1 img {
 .todo-form button {
   padding: 10px;
   font-size: 1rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  border: none;
+  border-radius: 5px;
 }
 
-.todo-form input::placeholder {
-  color: #999;
+.todo-form input,
+.todo-form select {
+  background: #ffffff;
+  color: #000;
 }
 
 .todo-form button {
-  background-color: #000;
-  color: #fff;
-  border: none;
+  background-color: #000000;
+  color: white;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s ease;
@@ -81,27 +68,30 @@ h1 img {
   background-color: #333;
 }
 
+/* ===== Todo List ===== */
 ul {
   list-style: none;
   padding: 0;
-  width: 100%;
+  margin: 0;
 }
 
+/* ===== Todo Item ===== */
 .todo-item {
-  background: #f4f4f4;
-  padding: 12px 10px;
+  background: #ffffff;
+  color: #000;
+  padding: 12px;
   border-radius: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   display: flex;
-  flex-direction: column;
-  gap: 4px;
-  color: #333;
+  justify-content: space-between;
+  align-items: center;
 }
 
+/* ===== Todo Text ===== */
 .todo-text {
-  font-size: 1rem;
-  font-weight: 500;
   cursor: pointer;
+  flex-grow: 1;
+  font-size: 1.1rem;
 }
 
 .todo-text.completed {
@@ -109,27 +99,25 @@ ul {
   color: gray;
 }
 
+/* ===== Meta Info ===== */
 .todo-meta {
-  font-size: 0.8rem;
-  color: #666;
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 4px;
 }
 
-.todo-buttons {
-  margin-top: 6px;
-  display: flex;
-  gap: 10px;
-}
-
+/* ===== Delete Button ===== */
 .todo-buttons button {
-  padding: 6px 12px;
-  font-size: 0.8rem;
-  background-color: #e53935;
-  color: white;
+  margin-left: 8px;
+  padding: 6px 10px;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
+  background-color: #ff4d4d;
+  color: white;
+  border-radius: 4px;
+  font-size: 0.8rem;
 }
 
 .todo-buttons button:hover {
-  background-color: #c62828;
+  background-color: #cc0000;
 }
