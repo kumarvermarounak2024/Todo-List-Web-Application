@@ -19,7 +19,7 @@ body {
 #root {
   width: 100%;
   max-width: 500px;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 2rem;
   border-radius: 12px;
   box-shadow: rgba(0,0,0,0);
