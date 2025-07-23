@@ -10,64 +10,93 @@ body {
   color: #ffffff;
 }
 
-.app-container {
-  max-width: 600px;
-  margin: 2rem auto;
-  background: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
 
-h1 {
+.header {
+  background: url('/header.jpg');
+  background-size: cover;
+  padding: 40px;
   text-align: center;
-  margin-bottom: 1rem;
-}
-
-input,
-select,
-button {
-  padding: 0.5rem;
-  margin-right: 0.5rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-}
-
-button {
-  background-color: #007bff;
   color: white;
+  font-size: 40px;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px;
+}
+
+.filters button {
+  padding: 10px 20px;
+  background: #cde3ce;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #0056b3;
+.filters .active {
+  background: #2d4f2d;
+  color: white;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
+.add-task {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
-li {
+.add-task input {
+  padding: 10px;
+  width: 250px;
+  margin-right: 10px;
+}
+
+.add-task button {
+  padding: 10px 20px;
+  background: #2d4f2d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.task-card {
+  background: white;
+  margin: 10px auto;
+  padding: 15px;
+  max-width: 700px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
-  background: #fafafa;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-li span {
-  cursor: pointer;
-  flex: 1;
+.task-title {
+  font-weight: bold;
 }
 
-.completed {
-  text-decoration: line-through;
+.task-date {
   color: gray;
+  font-size: 14px;
+}
+
+.priority {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.priority.red {
+  background: red;
+}
+
+.priority.yellow {
+  background: orange;
+}
+
+.priority.green {
+  background: green;
 }
