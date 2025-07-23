@@ -15,7 +15,7 @@ body {
   color: #ffffff;
 }
 
-/* ===== Root container ===== */
+/* ===== Root container ===== 
 #root {
   width: 100%;
   max-width: 500px;
@@ -23,7 +23,7 @@ body {
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 0 25px rgba(0,0,0,0.5);
-}
+}*/
 
 /* ===== Title ===== */
 h1 {
