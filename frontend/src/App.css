@@ -1,24 +1,36 @@
 /* ===== Background for entire page ===== */
 body {
-  background-image: url('/desk-workspace-with-various-elements.jpg');
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url('/bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
+  color: #ffffff;
 }
 
-/* ===== Root container ===== */
+/* ===== Overlay to darken background slightly ===== */
 #root {
-  max-width: 600px;
-  margin: 3rem auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6); /* semi-dark overlay */
+  backdrop-filter: blur(2px);
   padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.85);
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+/* ===== Main Card/Container ===== */
+.container {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+  color: #000;
 }
 
 /* ===== Title ===== */
@@ -26,14 +38,15 @@ h1 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
   text-align: center;
+  color: #222;
 }
 
 /* ===== Input Form ===== */
 .todo-form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 24px;
 }
 
 .todo-form input,
@@ -41,14 +54,19 @@ h1 {
 .todo-form button {
   padding: 10px;
   font-size: 1rem;
+  border-radius: 6px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+}
+
+.todo-form input::placeholder {
+  color: #888;
 }
 
 .todo-form button {
   background-color: #1e90ff;
   color: white;
   border: none;
+  font-weight: 600;
   cursor: pointer;
   transition: background 0.3s ease;
 }
@@ -66,11 +84,10 @@ ul {
 
 /* ===== Todo Item ===== */
 .todo-item {
-  background: #f0f0f0;
-  padding: 15px;
+  background: #f8f8f8;
+  padding: 14px 12px;
   border-radius: 8px;
   margin-bottom: 12px;
-  text-align: left;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -80,7 +97,8 @@ ul {
 .todo-text {
   cursor: pointer;
   flex-grow: 1;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
+  color: #333;
 }
 
 .todo-text.completed {
@@ -90,14 +108,14 @@ ul {
 
 /* ===== Meta Info ===== */
 .todo-meta {
-  font-size: 0.85rem;
-  color: #666;
+  font-size: 0.8rem;
+  color: #777;
   margin-top: 4px;
 }
 
 /* ===== Delete Button ===== */
 .todo-buttons button {
-  margin-left: 8px;
+  margin-left: 10px;
   padding: 6px 10px;
   border: none;
   cursor: pointer;
